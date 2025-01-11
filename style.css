@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Tahoma, sans-serif;
+}
+.action_btn a {
+  margin: 0px 10px;
+}
+.sub_nav {
+  border-bottom: 1px solid #a4a4a4;
+}
+.sub_nav h1 {
+  margin-left: 10px;
+}
+#buy {
+  border-radius: 20px;
+  padding: 7px 15px;
+  font-size: 12px;
+}
+
+.card_img {
+  width: 300px;
+  height: auto;
+}
